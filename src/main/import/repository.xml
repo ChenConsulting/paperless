@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
+    <modules jcr:primaryType="jnt:modules">
+        <paperless j:dependencies="default"
+                 j:modulePriority="0"
+                 j:moduleType="module"
+                 j:title="PaperLess"
+                 jcr:primaryType="jnt:module">
+                
+                <portlets jcr:primaryType="jnt:portletFolder"/>
+                <files jcr:primaryType="jnt:folder">
+                    <demo jcr:primaryType="jnt:folder"/>
+                </files>
+                <contents jcr:primaryType="jnt:contentFolder"/>
+                <templates j:rootTemplatePath="/base" jcr:primaryType="jnt:templatesFolder">
+                    <files jcr:primaryType="jnt:folder"/>
+                    <contents jcr:primaryType="jnt:contentFolder"/>
+                    <paperless-demo j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                        <j:translation_fr jcr:language="fr"
+                                 jcr:mixinTypes="mix:title"
+                                 jcr:primaryType="jnt:translation"
+                                 jcr:title="PaperLess demo"/>
+                        <pagecontent jcr:primaryType="jnt:contentList">
+                            <ajax-mode-dispatcher jcr:primaryType="jnt:modeDispatcher" mode="dashboardframe">
+                                <content-list j:expiration="0"
+                                   j:perUser="true"
+                                   j:skin="skins.box2"
+                                   jcr:mixinTypes="jmix:cache jmix:skinnable"
+                                   jcr:primaryType="jnt:contentList">
+                                    <pager displayNbOfItemsPerPage="true"
+                               displayNbOfItemsPerPageValues="5,10,25,50,100"
+                               displayPager="true"
+                               j:bindedComponent="/modules/paperless/templates/paperless-demo/pagecontent/ajax-mode-dispatcher/content-list/fileslist"
+                               jcr:primaryType="jnt:pager"
+                               nbOfPages="5"
+                               pageSize="5"/>
+                                    <fileslist folder="/modules/paperless/files/demo"
+                                   j:target="_blank"
+                                   jcr:primaryType="jnt:fileList"
+                                   useNodeNameAsTitle="true">
+                                        <j:translation_fr jcr:language="fr"
+                                             jcr:mixinTypes="mix:title"
+                                             jcr:primaryType="jnt:translation"
+                                             jcr:title="FilesList"/>
+                                    </fileslist>
+                                    <pager-1 displayNbOfItemsPerPage="true"
+                                 displayNbOfItemsPerPageValues="5,10,25,50,100"
+                                 displayPager="true"
+                                 j:bindedComponent="/modules/paperless/templates/paperless-demo/pagecontent/ajax-mode-dispatcher/content-list/fileslist"
+                                 jcr:primaryType="jnt:pager"
+                                 nbOfPages="5"
+                                 pageSize="5"/>
+                                    <file-upload-form jcr:primaryType="jnt:fileUpload" target="/modules/paperless/files/demo"/>
+                                    <j:translation_fr jcr:language="fr"
+                                          jcr:mixinTypes="mix:title"
+                                          jcr:primaryType="jnt:translation"
+                                          jcr:title="List"/>
+                                </content-list>
+                            </ajax-mode-dispatcher>
+                        </pagecontent>
+                    </paperless-demo>
+                </templates>
+                
+            </paperless>
+    </modules>
+</content>

@@ -1,0 +1,11 @@
+/.classpath
+/.project
+/.settings
+.idea
+*.iml
+*.ipr
+target
+.settings
+.project
+.classpath
+repository.xml.generated
