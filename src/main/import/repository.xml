@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
-        <paperless j:dependencies="default"
+        <paperless j:dependencies="default dropbox-provider"
                  j:modulePriority="0"
                  j:moduleType="module"
                  j:title="PaperLess"
@@ -9,14 +9,7 @@
                 
                 <portlets jcr:primaryType="jnt:portletFolder"/>
                 <files jcr:primaryType="jnt:folder">
-                    <demo jcr:primaryType="jnt:folder">
-                        <IMG_2115.JPG j:height="2436"
-                             j:width="1125"
-                             jcr:mixinTypes="jmix:image"
-                             jcr:primaryType="jnt:file">
-                            <jcr:content jcr:mimeType="image/jpeg" jcr:primaryType="jnt:resource"/>
-                        </IMG_2115.JPG>
-                    </demo>
+                    <demo jcr:primaryType="jnt:folder"/>
                 </files>
                 <contents jcr:primaryType="jnt:contentFolder"/>
                 <templates j:rootTemplatePath="/base" jcr:primaryType="jnt:templatesFolder">
@@ -29,9 +22,13 @@
                                  jcr:title="PaperLess demo"/>
                         <pagecontent jcr:primaryType="jnt:contentList">
                             <content-list j:expiration="0"
+                                j:invertCondition="false"
                                 j:perUser="true"
+                                j:requireLoggedUser="false"
+                                j:requirePrivilegedUser="false"
+                                j:requiredMode="live"
                                 j:skin="skins.box2"
-                                jcr:mixinTypes="jmix:cache jmix:skinnable"
+                                jcr:mixinTypes="jmix:cache jmix:requiredPermissions jmix:skinnable"
                                 jcr:primaryType="jnt:contentList">
                                 <pager displayNbOfItemsPerPage="true"
                             displayNbOfItemsPerPageValues="5,10,25,50,100"
@@ -42,6 +39,8 @@
                             pageSize="5"/>
                                 <fileslist folder="/modules/paperless/files/demo"
                                 j:target="_blank"
+                                j:view="qrcode"
+                                jcr:mixinTypes="jmix:renderable"
                                 jcr:primaryType="jnt:fileList"
                                 useNodeNameAsTitle="true">
                                     <j:translation_fr jcr:language="fr"

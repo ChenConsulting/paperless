@@ -1,0 +1,32 @@
+package eu.chenconsulting.stan.paperless.rules
+
+// list any import classes here.
+import eu.chenconsulting.stan.paperless.rules.*;
+import org.jahia.services.content.rules.*
+import org.jahia.services.content.*
+import javax.jcr.observation.Event
+import org.slf4j.Logger
+
+expander rules.dsl
+
+// declare any global variables here
+global User user
+global Service service
+global QRCodeService qrCodeService
+global ExtractionService extractionService
+global Logger logger
+global JCRStoreProvider provider
+
+
+rule "QRCode update"
+    salience 25
+// Rebuild qrcode for an updated file
+    when
+        A file content has been modified
+    then
+        > long timer = System.currentTimeMillis();
+        Log "QRCode begin"
+        Create a qrcode
+//        Dispose qrcode
+        Log "QRCode " + node.getPath() + " updated in " + (System.currentTimeMillis() - timer) + " ms"
+end
